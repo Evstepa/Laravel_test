@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Laravel</title>
+  <title>Тестовое задание</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -13,9 +13,9 @@
 
   <!-- Styles -->
   @vite(['resources/css/app.css', 'resources/js/app.js'])
-  {{-- <link rel="stylesheet" href="{{ asset('styles/bootstrap.min.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('styles/bootstrap.min.css') }}" type="text/css">
   <link rel="stylesheet" href="{{ asset('styles/normalize.css') }}" type="text/css">
-  <link rel="stylesheet" href="{{ asset('styles/main.css') }}" type="text/css"> --}}
+  <link rel="stylesheet" href="{{ asset('styles/main.css') }}" type="text/css">
 
 </head>
 
@@ -25,7 +25,7 @@
     @if (Route::has('login'))
     <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
       @auth
-      <a href="{{ url('/home') }}"
+      <a href="{{ url('/profile') }}"
         class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Домой</a>
       @else
       <a href="{{ route('login') }}"
@@ -40,18 +40,15 @@
     @endif
 
     <div class="max-w-7xl mx-auto p-6 lg:p-8">
-        <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-            Добро пожаловать!
-        </div>
-
         <div class="mt-16">
+            @include('user_request')
         </div>
 
-      <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-        <div class="text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-          Степаненко Е. Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+        <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
+            <div class="text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+                Степаненко Е. Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+            </div>
         </div>
-      </div>
     </div>
   </div>
 </body>
